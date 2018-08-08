@@ -18,6 +18,7 @@ config.local = new LocalStrategy({
     passReqToCallback : true
   },
   function(req, username, password, done) {
+
     User.findOne({ username: username }, (err, user) => {
       if (err) return done(err)
       if (!user) {
