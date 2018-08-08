@@ -13,11 +13,16 @@ router.post('/', (req, res) => {
     password: req.body.password
   })
   newUser.save()
-      .then(user => {
-        res.json({
+    .then(user => {
+        res.status(201).json({
           _id: user._id,
           username: user.username,
         })
+    })
+    .catch(err => {
+      res.status(400).json({
+        message: err.message
+      })
     })
 })
 
