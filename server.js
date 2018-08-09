@@ -6,24 +6,20 @@ const helmet = require('helmet')
 const bodyParser = require('body-parser')
 const passport = require('passport')
 const flash = require('connect-flash')
-const session = require('express-session');
-
+const bearerToken = require('express-bearer-token');
+const cors = require('cors')
 const app = express()
 const isAuthenticated = require('./routes/authentication')
 ///////////////////////////////////////////// CONFIGURE Middlewares
 passport.use(require('./config/passport').local)
 
 ///////////////////////////////////////////// SETUP Middlewares
-
-app.use(helmet())
-app.use(session({ cookie: { maxAge: 60000 },
-  secret: 'woot',
-  resave: false,
-  saveUninitialized: false}));
+app.use(cors());
+//app.use(helmet())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(passport.initialize())
-app.use(passport.session())
+app.use(bearerToken())
 app.use(flash());
 ///////////////////////////////////////////// SETUP Routes
 app.get('/', function (req, res) {
@@ -34,6 +30,8 @@ const user = require('./routes/api/user')
 app.use('/api/user', isAuthenticated(), user)
 const login = require('./routes/login')
 app.use('/login', login)
+const logout = require('./routes/logout')
+app.use('/logout', isAuthenticated(), logout)
 ///////////////////////////////////////////// CONFIGURE Server
 const port = process.env.PORT || 5000
 
