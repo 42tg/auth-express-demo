@@ -84,10 +84,10 @@ class App extends Component {
                   value={password}
                 />
                 <button> Sign in </button>
-                <a>
+                <button >
                   {' '}
                   <p> Don't have an account? Register </p>
-                </a>
+                </button>
               </form>
             </div>
           )}

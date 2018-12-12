@@ -28,8 +28,8 @@
     "serve": "nodemon server.js",
     "pretty": "prettier --write \"**/*.js\""
   },
-  "prettier" : {
-    "semi" : false,
+  "prettier": {
+    "semi": false,
     "singleQuote": true,
     "trailingComma": "es5",
     "jsxBracketSameLine": true
