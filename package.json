@@ -11,6 +11,7 @@
   "scripts": {
     "start": "concurrently \"cd server && node server.js\" \"cd client && npm start\"",
     "test": "echo \"No tests written yet\"",
+    "build": "echo \"No need to build here\"",
     "pretty": "prettier --write \"**/*.js\""
   },
   "prettier": {
