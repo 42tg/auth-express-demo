@@ -33,7 +33,7 @@ app.use('/login', login)
 const logout = require('./routes/logout')
 app.use('/logout', isAuthenticated(), logout)
 ///////////////////////////////////////////// CONFIGURE Server
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 8080
 
 ///////////////////////////////////////////// START Database
 moongose
