@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "concurrently": "^4.0.1",
-    "prettier": "1.16.4"
+    "prettier": "1.17.0"
   },
   "scripts": {
     "start": "concurrently \"cd server && node server.js\" \"cd client && npm start\"",
